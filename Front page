@@ -1,0 +1,220 @@
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(AuthenticationApp());
+}
+
+class AuthenticationApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Authentication App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: AuthenticationPage(),
+    );
+  }
+}
+
+class AuthenticationPage extends StatefulWidget {
+  @override
+  _AuthenticationPageState createState() => _AuthenticationPageState();
+}
+
+class _AuthenticationPageState extends State<AuthenticationPage> {
+  bool _showSignIn = true;
+
+  void _toggleView() {
+    setState(() {
+      _showSignIn = !_showSignIn;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(_showSignIn ? 'Sign In' : 'Sign Up'),
+      ),
+      body: _showSignIn ? SignInForm(_toggleView) : SignUpForm(_toggleView),
+    );
+  }
+}
+Certainly! Here's the code for the Flutter app with a sign-up and sign-in page that allows toggling between them:
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(AuthenticationApp());
+}
+
+class AuthenticationApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Authentication App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: AuthenticationPage(),
+    );
+  }
+}
+
+class AuthenticationPage extends StatefulWidget {
+  @override
+  _AuthenticationPageState createState() => _AuthenticationPageState();
+}
+
+class _AuthenticationPageState extends State<AuthenticationPage> {
+  bool _showSignIn = true;
+
+  void _toggleView() {
+    setState(() {
+      _showSignIn = !_showSignIn;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(_showSignIn ? 'Sign In' : 'Sign Up'),
+      ),
+      body: _showSignIn ? SignInForm(_toggleView) : SignUpForm(_toggleView),
+    );
+  }
+}
+
+class SignInForm extends StatelessWidget {
+  final Function toggleView;
+
+  SignInForm(this.toggleView);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20.0),
+      child: Column(
+        children: [
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Email',
+            ),
+          ),
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Password',
+            ),
+            obscureText: true,
+          ),
+          SizedBox(height: 20.0),
+          RaisedButton(
+            child: Text('Sign In'),
+            onPressed: () {
+              // Implement sign-in logic here
+            },
+          ),
+          FlatButton(
+            child: Text('Don\'t have an account? Sign Up'),
+            onPressed: toggleView,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SignUpForm extends StatelessWidget {
+  final Function toggleView;
+
+  SignUpForm(this.toggleView);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20.0),
+      child: Column(
+        children: [
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Email',
+            ),
+          ),
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Password',
+            ),
+            obscureText: true,
+          ),
+          SizedBox(height: 20.0),
+          RaisedButton(
+            child: Text('Sign Up'),
+            onPressed: () {
+              // Implement sign-up logic here
+            },
+          ),
+          FlatButton(
+            child: Text('Already have an account? Sign In'),
+            onPressed: toggleView,
+          ),
+        ],
+      ),
+    );
+  }
+}
+```￼Enter
+class SignInForm extends StatelessWidget {
+  final Function toggleView;
+
+  SignInForm(this.toggleView);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20.0),
+      child: Column(
+        children: [
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Email',
+            ),
+          ),
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Password',
+            ),
+            obscureText: true,
+          ),
+          SizedBox(height: 20.0),
+          RaisedButton(
+            child: Text('Sign In'),
+      onPressed: () {
+              // Implement sign-in logic here
+            },
+          ),
+          FlatButton(
+            child: Text('Don\'t have an account? Sign Up'),
+            onPressed: toggleView,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SignUpForm extends StatelessWidget {
+  final Function toggleView;
+
+  SignUpForm(this.toggleView);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20.0),
+      child: Column(
+        children: [
+          TextField(
